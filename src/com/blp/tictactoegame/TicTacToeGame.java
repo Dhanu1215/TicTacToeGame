@@ -17,6 +17,7 @@ public class TicTacToeGame {
         showBoard(); //Call method to show the board
         move(); //Call method to make move
         checkFreeSpace(); //Call method to check free space
+        checkFirstMove(); //Call method to check who play first
     }
 
     private static char[] createBoard() {
@@ -45,6 +46,7 @@ public class TicTacToeGame {
 
     private static void move() {
         Scanner sc = new Scanner(System.in);
+        System.out.println();
         System.out.println("Enter number between 1 to 9");
         int number = sc.nextInt();
         System.out.println("Player got the location on board = " + number);
@@ -63,6 +65,14 @@ public class TicTacToeGame {
             System.out.println("Space is free");
             board[input] = charter;
         }
+    }
+    private static void checkFirstMove() {
+        int head = 0;
+        int check = (int) ((Math.random()*10)%2);
+        if (check == head){
+            System.out.println("Player will play first");
+        } else
+            System.out.println("Computer will play first");
     }
 }
 
