@@ -1,21 +1,24 @@
 package com.blp.tictactoegame;
 
+import java.util.Scanner;
+
 /**
  * Tic Tac Toe Game
  */
 public class TicTacToeGame {
     //Declaring and initializing variables
-    public static final int X = 1;
-    public static final int O = 0;
+    public static char[] board;
 
     public static void main(String[] args) {
         System.out.println("Welcome to Tic Tac Toe Game");
-        createBoard(); //Call method to create board
+        System.out.println(createBoard()); //Call method to create board
         makeChoice(); //Call method to choose charter
+        showBoard(); //Call method to show the board
+        move(); //Call method to make move
     }
 
     private static char[] createBoard() {
-        char[] board = new char[10]; //Create array to print board
+        board = new char[10]; //Create array to print board
         for (int i = 1; i <= board.length - 1; i++) {
             board[i] = ' ';
         }
@@ -23,14 +26,25 @@ public class TicTacToeGame {
     }
 
     private static void makeChoice() { //Choice charter to play the game
-        int choice = (int) ((Math.random() * 10) % 2); //Use random method to choice char
-        switch (choice) {
-            case X:
-                System.out.println("Player1 got the 'X' charter choice");
-                break;
-            case O:
-                System.out.println("Computer got the 'O' charter choice");
-                break;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter charter 'X' or 'O'");
+        String charter = sc.next();
+    }
+
+    private static void showBoard() {
+        for (int i = 1; i <= board.length - 1; i++) {
+            if (i == 3 || i == 6) {
+                System.out.println(board[i]);
+            } else {
+                System.out.print(board[i] + "_" + "|" +"_");
+            }
         }
     }
+    private static void move() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter number between 1 to 9");
+        int number = sc.nextInt();
+        System.out.println("Player got the location on board = "+number);
+    }
 }
+
