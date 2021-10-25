@@ -14,6 +14,7 @@ public class TicTacToeGame {
         System.out.println(createBoard()); //Call method to create board
         makeChoice(); //Call method to choose charter
         showBoard(); //Call method to show the board
+        move(); //Call method to make move
     }
 
     private static char[] createBoard() {
@@ -38,6 +39,12 @@ public class TicTacToeGame {
                 System.out.print(board[i] + "_" + "|" +"_");
             }
         }
+    }
+    private static void move() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter number between 1 to 9");
+        int number = sc.nextInt();
+        System.out.println("Player got the location on board = "+number);
     }
 }
 
