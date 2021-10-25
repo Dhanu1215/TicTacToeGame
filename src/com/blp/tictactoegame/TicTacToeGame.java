@@ -46,6 +46,7 @@ public class TicTacToeGame {
 
     private static void move() {
         Scanner sc = new Scanner(System.in);
+        System.out.println();
         System.out.println("Enter number between 1 to 9");
         int number = sc.nextInt();
         System.out.println("Player got the location on board = " + number);
