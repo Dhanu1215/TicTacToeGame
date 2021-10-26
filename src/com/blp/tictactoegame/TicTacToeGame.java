@@ -52,24 +52,29 @@ public class TicTacToeGame {
         System.out.println("Player got the location on board = " + number);
         int computerChoice = (int) ((Math.random() * 10) % 10);
         System.out.println("Computer got the location on board = " + computerChoice);
+        if (computerChoice == number) {
+            System.out.println("Player will make choice again");
+            System.out.println("Enter number between 1 to 9");
+            number = sc.nextInt();
+        }
     }
-
     private static void checkFreeSpace() {
         System.out.println("choose index from 1 to 9  to make the move");
         Scanner sc = new Scanner(System.in);
         int input = sc.nextInt();
-        if (board[input] == 'x' | board[input] == 'o') {
+        if (board[input] == 'x' || board[input] == 'o') {
             System.out.println("Space is not free");
 
-        } else if (board[input] != 'x' | board[input] != 'o') {
+        } else if (board[input] != 'x' || board[input] != 'o') {
             System.out.println("Space is free");
             board[input] = charter;
         }
     }
+
     private static void checkFirstMove() {
         int head = 0;
-        int check = (int) ((Math.random()*10)%2);
-        if (check == head){
+        int check = (int) ((Math.random() * 10) % 2);
+        if (check == head) {
             System.out.println("Player will play first");
         } else
             System.out.println("Computer will play first");
